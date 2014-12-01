@@ -1,0 +1,5 @@
+
+File Decryption will decrypt a given txt file with the provided deypairs.
+(Fetched from Deypairs.txt)
+Then save it to Decrypted.txt
+

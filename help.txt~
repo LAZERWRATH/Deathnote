@@ -1,0 +1,13 @@
+welcome to Deathnote!
+this program has 2 main functions so far.
+encryption;
+decryption;
+          
+Encryption will encrypt a given string with the provided keypairs.
+(Fetched from Keypairs.txt)
+Then copy it to your clipboard (ctrl + V)
+If no string is entered it will fetch one from your clipboard
+
+Decryption will decrypt a given string with the provided keypairs.
+(Fetched from Depairs.txt)
+If no string is entered it will fetch one from your clipboard
