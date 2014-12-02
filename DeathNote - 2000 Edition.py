@@ -4,31 +4,40 @@ from sys import stdout
 from copy import deepcopy
 from random import randint
 
-settingz = ["FP", "TTP"]
-def importkeypairs():
-    keypairgen()
-    
-
+def boot():
+    if os.path.isfile("Keypairs.txt") == True:
+        load_keypairs()
+    else:
+        keypairgen()
+        load_keypairs()
+    if os.path.isfile("Settings.txt") == True:
+        load_settings()
+    else:
+        defaults()
 def keypairgen():
-    print("Generating Keypairs...")
-    List1 = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z",]
-    List2 = deepcopy(List1)
+    nums = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"," ", "\n"]
+    List1 = deepcopy(nums)
+    List2 = deepcopy(nums)
     Dict1 = {}
-    for i in range(0,26):
+    Dict2 = {}
+    for i in range(1,len(nums)):
         L1 = randint(0,len(List1)-1)
         L2 = randint(0,len(List2)-1)
         L1a = List1[L1]
         L2a = List2[L2]
-        Dict1[(List1[L1])] = List2[L2]
+        Dict1[L1a] = L2a
+        Dict2[L2a] = L1a
         List1.remove(L1a)
         List2.remove(L2a)
-    sets = open("KeypairsRAND", "w")
+    sets = open("Keypairs.txt", "w")
     sets.write(str(Dict1))
     sets.close()
-    print("Keypairs Generated")
+    sets = open("Depairs.txt", "w")
+    sets.write(str(Dict2))
+    sets.close()
     clear()
 def wait():
-    PENIS = input(print_str("Press Enter To Continue... "))
+    wait = input(print_str("Press Enter To Continue... "))
 def clear():
     os.system('cls' if os.name == 'nt' else 'clear')
 def print_str(string):
@@ -65,8 +74,6 @@ def load_keypairs():
     sets = open("Depairs.txt", "r+")
     decode = ast.literal_eval(sets.read())
     sets.close()
-load_keypairs()
-load_settings()
 def setting():
     clear()
     for i in settings:
@@ -89,6 +96,10 @@ def check_keys(str, dict):
 class value(object):
     def __init__(self, value):
         self.value = value
+
+
+boot()
+
 close = False
 while close != True:
     clear()
@@ -110,6 +121,8 @@ while close != True:
     if request == "settings":
         setting()
         save_settings()
+    if request == "newkeypairs":
+        keypairgen()
     if request == "keypairs":
         load_keypairs()
     if request == "encrypt":
@@ -178,13 +191,17 @@ while close != True:
         else:
             wait()
             clear()
+    if request == "h3x":
+        request = input(print_str("What Would You Like To Do? "))
+        exec(request)
+        wait()
     if request == "exit":
         clear()
-        top_eye =       "{cunt:^80}".format(cunt="  ,-''-.  ")
-        midtop_eye =    "{cunt:^80}".format(cunt=" / ,--. \ ")
-        mid_eye =       "{cunt:^80}".format(cunt="| ( () ) |")
-        midbot_eye =    "{cunt:^80}".format(cunt=" \ `--' / ")
-        bot_eye =       "{cunt:^80}".format(cunt="  `-..-'  ")
+        top_eye =       "{i:^80}".format(i="  ,-''-.  ")
+        midtop_eye =    "{i:^80}".format(i=" / ,--. \ ")
+        mid_eye =       "{i:^80}".format(i="| ( () ) |")
+        midbot_eye =    "{i:^80}".format(i=" \ `--' / ")
+        bot_eye =       "{i:^80}".format(i="  `-..-'  ")
         for i in range(0,6):
             if i < 1: print(top_eye)
             else: print("")
@@ -196,7 +213,7 @@ while close != True:
             else: print("")
             if i < 5: print(bot_eye)
             else: print("")
-            if i == 5: print("{cunt:^80}".format(cunt="Goodbye"))
+            if i == 5: print("{i:^80}".format(i="Goodbye"))
             if i < 5: sleep(0.5)
             else: sleep(1)
             clear()
