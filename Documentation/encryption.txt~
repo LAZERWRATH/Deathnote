@@ -1,7 +1,0 @@
-
-Encryption will encrypt a given string with the provided keypairs.
-(Fetched from Keypairs.txt)
-Then copy it to your clipboard (ctrl + V)
-If no string is entered it will fetch one from your clipboard
-
-

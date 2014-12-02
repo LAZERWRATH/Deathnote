@@ -105,19 +105,6 @@ while close != True:
     clear()
     request = input(print_str("What Would You Like To Do? "))
     clear()
-    if request == "help":
-        breaK = False
-        help = open("Documentation/help.txt", "r+")
-        print_str(help.read())
-        while breaK == False:
-            request = input(print_str("What Would You Like To Know More About? "))
-            request = open("Documentation/{}.txt".format(request), "r+")
-            print_str(request.read())
-            request.close()
-            request = raw_input(print_str("Would You Like To Know About Anything Else? (Y/N) "))
-            if request.upper() == "N":
-                breaK = True
-        help.close()
     if request == "settings":
         setting()
         save_settings()

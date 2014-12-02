@@ -1,5 +1,0 @@
-
-File Encryption will encrypt a given txt file with the provided keypairs.
-(Fetched from Keypairs.txt)
-Then save it to Encrypted.txt
-
